@@ -10,7 +10,7 @@ gunzip $WD/res/genome/ecoli.fasta.gz
 
 for sid in $(ls $WD/data/*.fastq.gz | xargs basename -a | cut -d_ -f1 | sort -u)
 do
-	 echo bash $WD/scripts/rna_pipeline.sh $sid 
+	bash $WD/scripts/analyse_sample.sh $sid 
 done
 
 mkdir -p $WD/out/multiqc
