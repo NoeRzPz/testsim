@@ -18,7 +18,13 @@ gunzip -f $wd/res/genome/ecoli.fasta.gz
 echo 
 
 echo "Running STAR index..."
-
+mkdir -p $wd/res/genome/star_index
+STAR \
+    --runThreadN 4 \
+    --runMode genomeGenerate \
+    --genomeDir $wd/res/genome/star_index/ \
+    --genomeFastaFiles $wd/res/genome/ecoli.fasta \
+    --genomeSAindexNbases 9
 echo
 
 for sid in $(ls $wd/data/*.fastq.gz | xargs basename -a | cut -d_ -f1 | sort -u)

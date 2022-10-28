@@ -23,16 +23,6 @@ cutadapt \
     > log/cutadapt/${sampleid}.log
 echo
 
-echo "Running STAR index..."
-mkdir -p res/genome/star_index
-STAR \
-    --runThreadN 4 \
-    --runMode genomeGenerate \
-    --genomeDir res/genome/star_index/ \
-    --genomeFastaFiles res/genome/ecoli.fasta \
-    --genomeSAindexNbases 9
-echo
-
 echo "Running STAR alignment..."
 mkdir -p out/star/${sampleid}
 STAR \
