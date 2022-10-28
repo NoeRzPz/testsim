@@ -1,3 +1,4 @@
+echo "-------- Starting pipeline at $(date +'%d %h %y, %r')... --------"
 wd=~/testsim
 
 echo "Downloading genome..."
@@ -27,3 +28,5 @@ done
 
 mkdir -p $wd/out/multiqc
 multiqc -o $wd/out/multiqc $wd
+echo
+echo "-------- Pipeline finished at $(date +'%d %h %y, %r')... --------"
