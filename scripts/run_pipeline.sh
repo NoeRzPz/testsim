@@ -1,18 +1,29 @@
-WD=~/testsim
+wd=~/testsim
 
-mkdir -p $WD/res/genome
+echo "Downloading genome..."
+mkdir -p $wd/res/genome
+wget -c -O $wd/res/genome/ecoli.fasta.gz ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_genomic.fna.gz
+#Check if downloading was succesfull
+if [ "$?" -ne 0 ] # Checks if previous exit code is not equal to 0
+then
+    echo "Error downloading file. Usage: bash scripts/$0"
+    exit 1 # Error signal, forces the script to exit with an error when downloading was not succesfull
+fi
+echo 
 
-# Download the E.coli genome
-wget -O $WD/res/genome/ecoli.fasta.gz ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_genomic.fna.gz
-
+echo "Uncompressing genome..."
 #Unzip E.coli genome 
-gunzip $WD/res/genome/ecoli.fasta.gz
+gunzip -f $wd/res/genome/ecoli.fasta.gz
+echo 
 
-for sid in $(ls $WD/data/*.fastq.gz | xargs basename -a | cut -d_ -f1 | sort -u)
+echo "Running STAR index..."
+
+echo
+
+for sid in $(ls $wd/data/*.fastq.gz | xargs basename -a | cut -d_ -f1 | sort -u)
 do
-	bash $WD/scripts/analyse_sample.sh $sid 
+	bash $wd/scripts/analyse_sample.sh $sid 
 done
 
-mkdir -p $WD/out/multiqc
-
-multiqc -o $WD/out/multiqc $WD
+mkdir -p $wd/out/multiqc
+multiqc -o $wd/out/multiqc $wd
