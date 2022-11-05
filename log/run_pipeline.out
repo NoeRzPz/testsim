@@ -1,66 +1,231 @@
+-------- Starting pipeline at 05 nov 22, 01:00:49 ... --------
 Downloading genome...
---2022-10-28 12:58:10--  ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_genomic.fna.gz
+--2022-11-05 13:00:49--  ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_genomic.fna.gz
            => ‘/home/vant/testsim/res/genome/ecoli.fasta.gz’
-Resolviendo ftp.ncbi.nlm.nih.gov (ftp.ncbi.nlm.nih.gov)... 130.14.250.12, 130.14.250.13, 2607:f220:41e:250::11, ...
-Conectando con ftp.ncbi.nlm.nih.gov (ftp.ncbi.nlm.nih.gov)[130.14.250.12]:21... conectado.
+Resolviendo ftp.ncbi.nlm.nih.gov (ftp.ncbi.nlm.nih.gov)... 130.14.250.7, 130.14.250.10, 2607:f220:41e:250::10, ...
+Conectando con ftp.ncbi.nlm.nih.gov (ftp.ncbi.nlm.nih.gov)[130.14.250.7]:21... conectado.
 Accediendo como anonymous... ¡Sesión iniciada!
 ==> SYST ... hecho.    ==> PWD ... hecho.
 ==> TYPE I ... hecho.  ==> CWD (1) /genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2 ... hecho.
 ==> SIZE GCF_000005845.2_ASM584v2_genomic.fna.gz ... 1379902
-==> PASV ... hecho.    ==> RETR GCF_000005845.2_ASM584v2_genomic.fna.gz ... hecho.
-Longitud: 1379902 (1,3M) (no autenticado)
+El fichero ya fue recuperado.
+2022-11-05 13:00:50 (0,00 B/s) - ‘/home/vant/testsim/res/genome/ecoli.fasta.gz’ guardado [1379902]
 
-     0K .......... .......... .......... .......... ..........  3%  115K 11s
-    50K .......... .......... .......... .......... ..........  7%  256K 8s
-   100K .......... .......... .......... .......... .......... 11%  587K 6s
-   150K .......... .......... .......... .......... .......... 14%  349K 5s
-   200K .......... .......... .......... .......... .......... 18%  441K 4s
-   250K .......... .......... .......... .......... .......... 22%  282K 4s
-   300K .......... .......... .......... .......... .......... 25%  788K 3s
-   350K .......... .......... .......... .......... .......... 29%  476K 3s
-   400K .......... .......... .......... .......... .......... 33%  789K 3s
-   450K .......... .......... .......... .......... .......... 37% 2,10M 2s
-   500K .......... .......... .......... .......... .......... 40%  462K 2s
-   550K .......... .......... .......... .......... .......... 44%  308K 2s
-   600K .......... .......... .......... .......... .......... 48% 1,16M 2s
-   650K .......... .......... .......... .......... .......... 51% 2,37M 2s
-   700K .......... .......... .......... .......... .......... 55%  605K 1s
-   750K .......... .......... .......... .......... .......... 59% 1,18M 1s
-   800K .......... .......... .......... .......... .......... 63% 1,49M 1s
-   850K .......... .......... .......... .......... .......... 66%  470K 1s
-   900K .......... .......... .......... .......... .......... 70%  384K 1s
-   950K .......... .......... .......... .......... .......... 74% 1,52M 1s
-  1000K .......... .......... .......... .......... .......... 77% 1,19M 1s
-  1050K .......... .......... .......... .......... .......... 81%  617K 1s
-  1100K .......... .......... .......... .......... .......... 85% 3,96M 0s
-  1150K .......... .......... .......... .......... .......... 89%  473K 0s
-  1200K .......... .......... .......... .......... .......... 92% 1,56M 0s
-  1250K .......... .......... .......... .......... .......... 96%  743K 0s
-  1300K .......... .......... .......... .......... .......   100% 1,36M=2,5s
-
-2022-10-28 12:58:17 (531 KB/s) - ‘/home/vant/testsim/res/genome/ecoli.fasta.gz’ guardado [1379902]
-
+/home/vant/testsim/res/genome/ecoli.fasta.gz: La suma coincide
 
 Uncompressing genome...
+You have already unziped your reference genome
 
 Running STAR index...
+	STAR --runThreadN 4 --runMode genomeGenerate --genomeDir /home/vant/testsim/res/genome/star_index/ --genomeFastaFiles /home/vant/testsim/res/genome/ecoli.fasta --genomeSAindexNbases 9
+	STAR version: 2.7.10a   compiled: 2022-01-14T18:50:00-05:00 :/home/dobin/data/STAR/STARcode/STAR.master/source
+Nov 05 13:00:50 ..... started STAR run
+Nov 05 13:00:50 ... starting to generate Genome files
+Nov 05 13:00:51 ... starting to sort Suffix Array. This may take a long time...
+Nov 05 13:00:51 ... sorting Suffix Array chunks and saving them to disk...
+Nov 05 13:00:52 ... loading chunks from disk, packing SA...
+Nov 05 13:00:52 ... finished generating suffix array
+Nov 05 13:00:52 ... generating Suffix Array index
+Nov 05 13:00:52 ... completed Suffix Array index
+Nov 05 13:00:52 ... writing Genome to disk ...
+Nov 05 13:00:52 ... writing Suffix Array to disk ...
+Nov 05 13:00:52 ... writing SAindex to disk
+Nov 05 13:00:52 ..... finished successfully
 
-bash /home/vant/testsim/scripts/analyse_sample.sh ERR2868172
-bash /home/vant/testsim/scripts/analyse_sample.sh ERR2868173
-bash /home/vant/testsim/scripts/analyse_sample.sh ERR2868174
+Starting sample analysis...
+
+Analysing sample ERR2868172...
+Running FastQC...
+Started analysis of ERR2868172_1.fastq.gz
+Approx 5% complete for ERR2868172_1.fastq.gz
+Approx 10% complete for ERR2868172_1.fastq.gz
+Approx 15% complete for ERR2868172_1.fastq.gz
+Approx 20% complete for ERR2868172_1.fastq.gz
+Approx 25% complete for ERR2868172_1.fastq.gz
+Approx 30% complete for ERR2868172_1.fastq.gz
+Approx 35% complete for ERR2868172_1.fastq.gz
+Approx 40% complete for ERR2868172_1.fastq.gz
+Approx 45% complete for ERR2868172_1.fastq.gz
+Approx 50% complete for ERR2868172_1.fastq.gz
+Approx 55% complete for ERR2868172_1.fastq.gz
+Approx 60% complete for ERR2868172_1.fastq.gz
+Approx 65% complete for ERR2868172_1.fastq.gz
+Approx 70% complete for ERR2868172_1.fastq.gz
+Approx 75% complete for ERR2868172_1.fastq.gz
+Approx 80% complete for ERR2868172_1.fastq.gz
+Approx 85% complete for ERR2868172_1.fastq.gz
+Approx 90% complete for ERR2868172_1.fastq.gz
+Approx 95% complete for ERR2868172_1.fastq.gz
+Approx 100% complete for ERR2868172_1.fastq.gz
+Analysis complete for ERR2868172_1.fastq.gz
+Started analysis of ERR2868172_2.fastq.gz
+Approx 5% complete for ERR2868172_2.fastq.gz
+Approx 10% complete for ERR2868172_2.fastq.gz
+Approx 15% complete for ERR2868172_2.fastq.gz
+Approx 20% complete for ERR2868172_2.fastq.gz
+Approx 25% complete for ERR2868172_2.fastq.gz
+Approx 30% complete for ERR2868172_2.fastq.gz
+Approx 35% complete for ERR2868172_2.fastq.gz
+Approx 40% complete for ERR2868172_2.fastq.gz
+Approx 45% complete for ERR2868172_2.fastq.gz
+Approx 50% complete for ERR2868172_2.fastq.gz
+Approx 55% complete for ERR2868172_2.fastq.gz
+Approx 60% complete for ERR2868172_2.fastq.gz
+Approx 65% complete for ERR2868172_2.fastq.gz
+Approx 70% complete for ERR2868172_2.fastq.gz
+Approx 75% complete for ERR2868172_2.fastq.gz
+Approx 80% complete for ERR2868172_2.fastq.gz
+Approx 85% complete for ERR2868172_2.fastq.gz
+Approx 90% complete for ERR2868172_2.fastq.gz
+Approx 95% complete for ERR2868172_2.fastq.gz
+Approx 100% complete for ERR2868172_2.fastq.gz
+Analysis complete for ERR2868172_2.fastq.gz
+
+Running cutadapt...
+
+Running STAR alignment...
+	STAR --runThreadN 4 --genomeDir /home/vant/testsim/res/genome/star_index/ --readFilesIn /home/vant/testsim/out/cutadapt/ERR2868172_1.trimmed.fastq.gz /home/vant/testsim/out/cutadapt/ERR2868172_2.trimmed.fastq.gz --readFilesCommand zcat --outFileNamePrefix /home/vant/testsim/out/star/ERR2868172/
+	STAR version: 2.7.10a   compiled: 2022-01-14T18:50:00-05:00 :/home/dobin/data/STAR/STARcode/STAR.master/source
+Nov 05 13:01:08 ..... started STAR run
+Nov 05 13:01:08 ..... loading genome
+Nov 05 13:01:08 ..... started mapping
+Nov 05 13:01:36 ..... finished mapping
+Nov 05 13:01:36 ..... finished successfully
+
+Done
+
+Analysing sample ERR2868173...
+Running FastQC...
+Started analysis of ERR2868173_1.fastq.gz
+Approx 5% complete for ERR2868173_1.fastq.gz
+Approx 10% complete for ERR2868173_1.fastq.gz
+Approx 15% complete for ERR2868173_1.fastq.gz
+Approx 20% complete for ERR2868173_1.fastq.gz
+Approx 25% complete for ERR2868173_1.fastq.gz
+Approx 30% complete for ERR2868173_1.fastq.gz
+Approx 35% complete for ERR2868173_1.fastq.gz
+Approx 40% complete for ERR2868173_1.fastq.gz
+Approx 45% complete for ERR2868173_1.fastq.gz
+Approx 50% complete for ERR2868173_1.fastq.gz
+Approx 55% complete for ERR2868173_1.fastq.gz
+Approx 60% complete for ERR2868173_1.fastq.gz
+Approx 65% complete for ERR2868173_1.fastq.gz
+Approx 70% complete for ERR2868173_1.fastq.gz
+Approx 75% complete for ERR2868173_1.fastq.gz
+Approx 80% complete for ERR2868173_1.fastq.gz
+Approx 85% complete for ERR2868173_1.fastq.gz
+Approx 90% complete for ERR2868173_1.fastq.gz
+Approx 95% complete for ERR2868173_1.fastq.gz
+Approx 100% complete for ERR2868173_1.fastq.gz
+Analysis complete for ERR2868173_1.fastq.gz
+Started analysis of ERR2868173_2.fastq.gz
+Approx 5% complete for ERR2868173_2.fastq.gz
+Approx 10% complete for ERR2868173_2.fastq.gz
+Approx 15% complete for ERR2868173_2.fastq.gz
+Approx 20% complete for ERR2868173_2.fastq.gz
+Approx 25% complete for ERR2868173_2.fastq.gz
+Approx 30% complete for ERR2868173_2.fastq.gz
+Approx 35% complete for ERR2868173_2.fastq.gz
+Approx 40% complete for ERR2868173_2.fastq.gz
+Approx 45% complete for ERR2868173_2.fastq.gz
+Approx 50% complete for ERR2868173_2.fastq.gz
+Approx 55% complete for ERR2868173_2.fastq.gz
+Approx 60% complete for ERR2868173_2.fastq.gz
+Approx 65% complete for ERR2868173_2.fastq.gz
+Approx 70% complete for ERR2868173_2.fastq.gz
+Approx 75% complete for ERR2868173_2.fastq.gz
+Approx 80% complete for ERR2868173_2.fastq.gz
+Approx 85% complete for ERR2868173_2.fastq.gz
+Approx 90% complete for ERR2868173_2.fastq.gz
+Approx 95% complete for ERR2868173_2.fastq.gz
+Approx 100% complete for ERR2868173_2.fastq.gz
+Analysis complete for ERR2868173_2.fastq.gz
+
+Running cutadapt...
+
+Running STAR alignment...
+	STAR --runThreadN 4 --genomeDir /home/vant/testsim/res/genome/star_index/ --readFilesIn /home/vant/testsim/out/cutadapt/ERR2868173_1.trimmed.fastq.gz /home/vant/testsim/out/cutadapt/ERR2868173_2.trimmed.fastq.gz --readFilesCommand zcat --outFileNamePrefix /home/vant/testsim/out/star/ERR2868173/
+	STAR version: 2.7.10a   compiled: 2022-01-14T18:50:00-05:00 :/home/dobin/data/STAR/STARcode/STAR.master/source
+Nov 05 13:01:52 ..... started STAR run
+Nov 05 13:01:52 ..... loading genome
+Nov 05 13:01:52 ..... started mapping
+Nov 05 13:02:20 ..... finished mapping
+Nov 05 13:02:20 ..... finished successfully
+
+Done
+
+Analysing sample ERR2868174...
+Running FastQC...
+Started analysis of ERR2868174_1.fastq.gz
+Approx 5% complete for ERR2868174_1.fastq.gz
+Approx 10% complete for ERR2868174_1.fastq.gz
+Approx 15% complete for ERR2868174_1.fastq.gz
+Approx 20% complete for ERR2868174_1.fastq.gz
+Approx 25% complete for ERR2868174_1.fastq.gz
+Approx 30% complete for ERR2868174_1.fastq.gz
+Approx 35% complete for ERR2868174_1.fastq.gz
+Approx 40% complete for ERR2868174_1.fastq.gz
+Approx 45% complete for ERR2868174_1.fastq.gz
+Approx 50% complete for ERR2868174_1.fastq.gz
+Approx 55% complete for ERR2868174_1.fastq.gz
+Approx 60% complete for ERR2868174_1.fastq.gz
+Approx 65% complete for ERR2868174_1.fastq.gz
+Approx 70% complete for ERR2868174_1.fastq.gz
+Approx 75% complete for ERR2868174_1.fastq.gz
+Approx 80% complete for ERR2868174_1.fastq.gz
+Approx 85% complete for ERR2868174_1.fastq.gz
+Approx 90% complete for ERR2868174_1.fastq.gz
+Approx 95% complete for ERR2868174_1.fastq.gz
+Approx 100% complete for ERR2868174_1.fastq.gz
+Analysis complete for ERR2868174_1.fastq.gz
+Started analysis of ERR2868174_2.fastq.gz
+Approx 5% complete for ERR2868174_2.fastq.gz
+Approx 10% complete for ERR2868174_2.fastq.gz
+Approx 15% complete for ERR2868174_2.fastq.gz
+Approx 20% complete for ERR2868174_2.fastq.gz
+Approx 25% complete for ERR2868174_2.fastq.gz
+Approx 30% complete for ERR2868174_2.fastq.gz
+Approx 35% complete for ERR2868174_2.fastq.gz
+Approx 40% complete for ERR2868174_2.fastq.gz
+Approx 45% complete for ERR2868174_2.fastq.gz
+Approx 50% complete for ERR2868174_2.fastq.gz
+Approx 55% complete for ERR2868174_2.fastq.gz
+Approx 60% complete for ERR2868174_2.fastq.gz
+Approx 65% complete for ERR2868174_2.fastq.gz
+Approx 70% complete for ERR2868174_2.fastq.gz
+Approx 75% complete for ERR2868174_2.fastq.gz
+Approx 80% complete for ERR2868174_2.fastq.gz
+Approx 85% complete for ERR2868174_2.fastq.gz
+Approx 90% complete for ERR2868174_2.fastq.gz
+Approx 95% complete for ERR2868174_2.fastq.gz
+Approx 100% complete for ERR2868174_2.fastq.gz
+Analysis complete for ERR2868174_2.fastq.gz
+
+Running cutadapt...
+
+Running STAR alignment...
+	STAR --runThreadN 4 --genomeDir /home/vant/testsim/res/genome/star_index/ --readFilesIn /home/vant/testsim/out/cutadapt/ERR2868174_1.trimmed.fastq.gz /home/vant/testsim/out/cutadapt/ERR2868174_2.trimmed.fastq.gz --readFilesCommand zcat --outFileNamePrefix /home/vant/testsim/out/star/ERR2868174/
+	STAR version: 2.7.10a   compiled: 2022-01-14T18:50:00-05:00 :/home/dobin/data/STAR/STARcode/STAR.master/source
+Nov 05 13:02:36 ..... started STAR run
+Nov 05 13:02:36 ..... loading genome
+Nov 05 13:02:36 ..... started mapping
+Nov 05 13:03:03 ..... finished mapping
+Nov 05 13:03:03 ..... finished successfully
+
+Done
+
+Running MultiQC...
 
   /// MultiQC 🔍 | v1.13
 
 |           multiqc | Search path : /home/vant/testsim
-|         searching | ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 91/91  
-|            snippy | Found 3 reports
-|          bargraph | Tried to make bar plot, but had no data: snippy_variants
+|         searching | ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 62/62  
 |              star | Found 3 reports
 |          cutadapt | Found 3 reports
 |            fastqc | Found 6 reports
 |           multiqc | Compressing plot data
-|           multiqc | Previous MultiQC output found! Adjusting filenames..
-|           multiqc | Use -f or --force to overwrite existing reports instead
-|           multiqc | Report      : out/multiqc/multiqc_report_4.html
-|           multiqc | Data        : out/multiqc/multiqc_data_4
+|           multiqc | Report      : out/multiqc/multiqc_report.html
+|           multiqc | Data        : out/multiqc/multiqc_data
 |           multiqc | MultiQC complete
+
+-------- Pipeline finished at 05 nov 22, 01:03:09 ... --------
