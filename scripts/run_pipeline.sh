@@ -12,7 +12,12 @@ fi
 echo 
 
 echo "Uncompressing genome..."
-gunzip -f $wd/res/genome/ecoli.fasta.gz #Force to overwrite existing file, it avoids having to answer "yes" when rerunning pipeline
+if [[ -e $wd/res/genome/ecoli.fasta ]]
+then
+	echo "You have already unziped your reference genome"
+else
+	gunzip $wd/res/genome/ecoli.fasta.gz #Force to overwrite existing file, it avoids having to answer "yes" when rerunning pipeline
+fi	
 echo 
 
 echo "Running STAR index..."
