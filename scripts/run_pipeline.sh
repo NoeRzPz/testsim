@@ -1,10 +1,14 @@
 echo "-------- Starting pipeline at $(date +'%d %h %y, %r')... --------"
+
+#Variables definition
 wd=~/testsim
+genome_url=ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_genomic.fna.gz
+genome_fname=$wd/res/genome/ecoli.fasta.gz
+md5_url=ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/md5checksums.txt
 
 echo "Downloading genome..."
 mkdir -p $wd/res/genome
-wget -c -O $wd/res/genome/ecoli.fasta.gz ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_genomic.fna.gz
-
+wget -c -O $genome_fname $genome_url
 if [ "$?" -ne 0 ] # Checks if previous exit code is not equal to 0
 then
     echo "Error in downloading file. Usage: bash $0"
@@ -12,17 +16,16 @@ then
 fi
 
 #Computing md5sum
-md5sum $wd/res/genome/ecoli.fasta.gz | md5sum -c
+md5sum -c <(echo $(curl $md5_url | grep v2.genomic.fna | cut -d" " -f1) $genome_fname)
 if [ "$?" -ne 0 ]
 then
-	echo "md5sum checked for downloaded file failed. Usage: bash $0"
+	echo "md5sum checked for downloaded file failed. Aborting."
 	exit 1
 fi
 echo 
 
 echo "Uncompressing genome..."
-if [[ -e $wd/res/genome/ecoli.fasta ]] #It avoids having to overwrite file when rerunning pipeline
-
+if [[ -e $(echo $genome_fname | cut -d"." -f1-2) ]] #It avoids having to overwrite file when rerunning pipeline
 then
 	echo "You have already unziped your reference genome"
 else
